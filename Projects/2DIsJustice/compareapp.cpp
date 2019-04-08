@@ -83,10 +83,10 @@ void CompareApp::Paint(HDC hdc, int w, int h)
 {
 	PatBlt(hdc, 0, 0, w, h, WHITENESS);
 
-	m_robo1.UpdateSight(m_points);
-	m_robo2.UpdateSight(m_points);
+	//m_robo1.UpdateSight(m_points);
+	//m_robo2.UpdateSight(m_points);
 	DrawEstimatedPoints(hdc);
-	Draw3PointsSameAngles(hdc);
+	//Draw3PointsSameAngles(hdc);
 	m_robo1.Draw(hdc);
 	m_robo2.Draw(hdc);
 
@@ -97,7 +97,7 @@ void CompareApp::MouseMove(int x, int y, int dx, int dy)
 {
 	if (m_selectedRobo)
 	{
-		m_selectedRobo->setPosition(mth::float2((float)x, (float)y));
+		m_selectedRobo->setPosition(mth::float2((float)x, (float)y) - m_grabOffset);
 		AskRedraw();
 	}
 }
@@ -105,9 +105,15 @@ void CompareApp::LBtnDown(int x, int y)
 {
 	mth::float2 p((float)x, (float)y);
 	if (isRoboClicked(m_robo1, p))
+	{
+		m_grabOffset = p - m_robo1.getPosition();
 		m_selectedRobo = &m_robo1;
+	}
 	else if (isRoboClicked(m_robo2, p))
+	{
+		m_grabOffset = p - m_robo2.getPosition();
 		m_selectedRobo = &m_robo2;
+	}
 }
 void CompareApp::LBtnUp(int x, int y)
 {

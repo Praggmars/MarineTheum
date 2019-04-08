@@ -15,28 +15,46 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="genmath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="geometry2d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="linalg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="geometry3d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClCompile Include="appclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cameraposeestimator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cpebestchoices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cpeframebyframe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pointtracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="geometry2d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="linalg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="geometry3d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="appclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cameraposeestimator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cpebestchoices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cpeframebyframe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pointtracker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

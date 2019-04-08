@@ -8,6 +8,7 @@
 class MovePointApp :public WindowClass
 {
 	float m_pointRadius;
+	mth::float2 m_grabOffset;
 	mth::float2 *m_selectedPoint;
 	Robot* m_selectedRobo;
 

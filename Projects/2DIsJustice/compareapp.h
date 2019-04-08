@@ -5,6 +5,7 @@
 class CompareApp :public WindowClass
 {
 	Robot m_robo1, m_robo2;
+	mth::float2 m_grabOffset;
 	Robot *m_selectedRobo;
 	std::vector<mth::float2> m_points;
 	float m_pointRadius;

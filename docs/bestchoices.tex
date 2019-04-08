@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\begin{document}
+	
+\section{Kamera póz becslés}
+\subsection{Cél:}
+Képsor alapján meghatározni a képet rögzítő kamera pozícióját és rotációját.
+
+\subsection{Bemenetek}
+Minden képen a talált pontok $(x, y)$ koordinátája. Például 20 bemeneti kép és 10 követett pont esetén egy 10 elemű 2D koordinátákat tároló tömbnek 20 elemű tömbje. Programban: Point2D[20][10].
+
+\subsection{Kimenetek}
+Minden képre egy kamerapózt tároló adattömb. A kamerapóz 3D pozícióból és 3D forgásból áll. Becslés során a pontok koordinátái és megfejtésre kerülnek.
+
+\subsection{Előkészületek}
+Mielőtt megkezdődne a becslés, kezdeti értékeket kell adni a kimeneteknek, amiből ki lehet indulni és a helyes megoldás felé haladni. Az első kép alapján el lehet helyezni a pontokat egy adott távolságra a kamerától. Ezáltal az első képen nincs hiba. A kamerákat ki lehet tölteni csupa 0.0f koordinátákkal.
+
+\subsection{Becslés}
+A becslés iterációkban megy végbe. Egy iteráció 3 ismeretlent közelít: kamera pozíciója, kamera rotációja és a pontok helyzete. Az egyes ismeretleneket a másik ismeretlenekből meg lehet határozni. A becslés helyesnek feltételez két ismeretlent, becsli a harmadikat, és elmozdítja a kapott érték irányába.
+
+\subsection{Kamera pozíció}
+Egy képkockán a pontok 2D képernyő koordinátáiból meghatározható, hogy a pontok a kamerához relatívan milyen irányban vannak. Ehhez hozzáadva a kamera rotációját meghatározható, hogy globálisan milyen irányban vannak. Ezek az egyenesek átmennek a nekik megfelelő ponton és a kamerán. A kamera pozícióját nem ismerve még mindig adott egy pont és az irányvektor, vagyis az egyenes egyenlete. A pontok számának megfelelő egyenestől négyzetes eltérés minimalizálásával becsülhető a kamera helyzete minden képre.
+
+\subsection{Kamera rotáció}
+Minden képkocka minden pontjára meghatározható, hogyan kell elforgatni a kamerás, hogy a pont a bemenetnek megfelelő képkoordinátákon legyen. Ahol a jelenlegi értékkel látszik a pont, abból képezhető egy irányvektor, amit bele kell forgatni a bemenetből képezhető irányvektorba.
+Képkockánként átlagolva ezeket a rotációkat kapható egy jó közelítés a kamera rotációjához.
+
+\subsection{Pontok}
+Ha ismert a kamerapóz minden képkockán, a bemenetből meghatározható, mikor milyen irányban látszanak az egyes pontok. Az ezekből képzett egyenes átmegy a kamerán és a ponton, amiből a kamera helyzete ismertnek tekinthető. Minden képkockából összegyűjtve a kamera pozíciókat és irányokat kapható a képkockák számának megfelelő számú egyenes. Ezektől négyzetes eltérés minimalizálással becsülhető a pont pozíciója.
+	
+\end{document}

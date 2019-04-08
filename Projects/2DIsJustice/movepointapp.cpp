@@ -81,12 +81,12 @@ void MovePointApp::MouseMove(int x, int y, int dx, int dy)
 {
 	if (m_selectedPoint)
 	{
-		*m_selectedPoint = mth::float2((float)x, (float)y);
+		*m_selectedPoint = mth::float2((float)x, (float)y) - m_grabOffset;
 		AskRedraw();
 	}
 	if (m_selectedRobo)
 	{
-		m_selectedRobo->setPosition(mth::float2((float)x, (float)y));
+		m_selectedRobo->setPosition(mth::float2((float)x, (float)y) - m_grabOffset);
 		AskRedraw();
 	}
 }
@@ -99,6 +99,7 @@ void MovePointApp::LBtnDown(int x, int y)
 		if ((p - m).LengthSquare() < m_pointRadius*m_pointRadius)
 		{
 			m_selectedPoint = &p;
+			m_grabOffset = m - p;
 			return;
 		}
 	}
@@ -107,17 +108,14 @@ void MovePointApp::LBtnDown(int x, int y)
 		if ((p - m).LengthSquare() < m_pointRadius*m_pointRadius)
 		{
 			m_selectedPoint = &p;
+			m_grabOffset = m - p;
 			return;
 		}
 	}
 	if ((m_inputRobo.getPosition() - m).LengthSquare() < m_inputRobo.getRoboRadius()*m_inputRobo.getRoboRadius())
 	{
 		m_selectedRobo = &m_inputRobo;
-		return;
-	}
-	if ((m_estRobo.getPosition() - m).LengthSquare() < m_estRobo.getRoboRadius()*m_estRobo.getRoboRadius())
-	{
-		m_selectedRobo = &m_estRobo;
+		m_grabOffset = m - m_inputRobo.getPosition();
 		return;
 	}
 }
