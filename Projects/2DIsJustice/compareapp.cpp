@@ -147,3 +147,5 @@ CompareApp::CompareApp(HWND hwnd) :WindowClass(hwnd)
 	m_robo2.setAngle(3.4f);
 	m_robo2.UpdateSight(m_points);
 }
+
+CompareApp::~CompareApp() {}

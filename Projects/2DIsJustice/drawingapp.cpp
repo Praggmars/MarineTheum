@@ -8,6 +8,8 @@ DrawingApp::DrawingApp(HWND hwnd) :
 	m_line2(mth::float2(0.0f, 300.0f), mth::float2(10.0f, -1.0f))
 {}
 
+DrawingApp::~DrawingApp() {}
+
 void DrawingApp::Paint(HDC hdc, int w, int h)
 {
 	PatBlt(hdc, 0, 0, w, h, WHITENESS);

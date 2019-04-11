@@ -13,6 +13,7 @@ protected:
 
 public:
 	WindowClass(HWND hwnd);
+	virtual ~WindowClass();
 	void Paint(HWND hwnd);
 	virtual void Paint(HDC hdc, int w, int h);
 	virtual void KeyDown(WPARAM wparam);

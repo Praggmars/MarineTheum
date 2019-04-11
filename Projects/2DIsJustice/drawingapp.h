@@ -10,6 +10,8 @@ class DrawingApp :public WindowClass
 
 public:
 	DrawingApp(HWND hwnd);
+	virtual ~DrawingApp() override;
+
 	virtual void Paint(HDC hdc, int w, int h) override;
 	virtual void MouseMove(int x, int y, int dx, int dy) override;
 	virtual void LBtnDown(int x, int y) override;

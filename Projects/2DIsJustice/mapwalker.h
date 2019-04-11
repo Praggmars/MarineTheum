@@ -35,7 +35,7 @@ private:
 	
 public:
 	MapWalker(HWND hwnd);
-	~MapWalker();
+	virtual ~MapWalker() override;
 
 	virtual void Paint(HDC hdc, int w, int h) override;
 	virtual void Timer(WPARAM wparam) override;

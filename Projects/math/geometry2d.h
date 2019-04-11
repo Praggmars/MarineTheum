@@ -43,6 +43,7 @@ namespace mth
 
 		bool IsOnArea(float2 p);
 		bool IsOnPerimeter(float2 p, float eps = EPS);
+		float DistanceFromPerimeter(mth::float2 p);
 		int Intersection(Line2D line, float2 out[2]);
 		int Intersection(Circle2D circle, float2 out[2]);
 	};

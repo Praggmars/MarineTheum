@@ -7,6 +7,8 @@ void WindowClass::AskRedraw()
 
 WindowClass::WindowClass(HWND hwnd) :m_hwnd(hwnd) {}
 
+WindowClass::~WindowClass() {}
+
 void WindowClass::Paint(HWND hwnd)
 {
 	PAINTSTRUCT ps;

@@ -20,6 +20,7 @@ private:
 	
 public:
 	CompareApp(HWND hwnd);
+	virtual ~CompareApp() override;
 
 	virtual void Paint(HDC hdc, int w, int h) override;
 	virtual void MouseMove(int x, int y, int dx, int dy) override;

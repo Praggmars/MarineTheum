@@ -64,6 +64,10 @@ namespace mth
 	{
 		return IsPointOnCircle(p, c, r, eps);
 	}
+	float Circle2D::DistanceFromPerimeter(mth::float2 p)
+	{
+		return fabsf((c - p).Length() - r);
+	}
 	int Circle2D::Intersection(Line2D line, float2 out[2])
 	{
 		return IntersectionCircleLine(c, r, line.p, line.v, out);
